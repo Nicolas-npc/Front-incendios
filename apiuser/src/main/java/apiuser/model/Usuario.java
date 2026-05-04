@@ -1,19 +1,9 @@
 package apiuser.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Entity
 @Table(name = "Usuario")
@@ -47,5 +37,6 @@ public class Usuario {
 
     @NotBlank(message = "La contraseña no puede estar vacia")
     @Size(min = 8, message = "la contraseña debe tener al menos 8 caracteres")
+    @Column(length = 60)
     private String password;
 }
